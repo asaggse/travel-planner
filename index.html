@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Planner</title>
+    <link rel="shortcut icon" href="img/icon.ico" type="image/x-icon">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Unbounded:wght@200..900&display=swap"
+        rel="stylesheet">
+    <!-- /Google Fonts -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <!-- Intestazione App -->
+        <header>
+            <img src="img/boolean-logo.png" alt="Logo Boolean" class="boolean-logo">
+            <img src="img/logo.png" alt="Logo App" class="app-logo">
+        </header>
+        <!-- /Intestazione App -->
+        <main class="building">
+            <!-- Schermata di preparazione -->
+            <div class="building-screen">
+                <div class="card">
+                    <h3 class="card-title">Dove vuoi andare?</h3>
+                    <input type="text" name="Ariccia" id="" placeholder="Inserisci la tua destinazione...">
+                </div>
+                <div class="card">
+                    <h3 class="card-title">Tipo di viaggio</h3>
+                    <div class="types-selection">
+                        <label for="" class="type-selection-label">
+                            💆‍♂️ Relax
+                            <input type="radio" class="types-selection-input" name="type" value="relax" checked>
+                        </label>
+                        <label for="" class="type-selection-label">
+                            🏛️ Cultura
+                            <input type="radio" class="types-selection-input" name="type" value="cultura">
+                        </label>
+                        <label for="" class="type-selection-label">
+                            🍱 Gastronomia
+                            <input type="radio" class="types-selection-input" name="type" value="gastronomia">
+                        </label>
+                        <label for="" class="type-selection-label">
+                            🗺️ Avventura
+                            <input type="radio" class="types-selection-input" name="type" value="avventura">
+                        </label>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3 class="card-title">Durata del viaggio</h3>
+                    <div class="days-selection">
+                        <button class="day-selection-button">
+                            <img src="img/remove.svg" alt="Decremeta giorni">
+                        </button>
+                        <div class="day-counter">1</div>
+                        <button class="day-selection-button">
+                            <img src="img/add.svg" alt="Incrementa giorni">
+                        </button>
+                    </div>
+                </div>
+                <button class="primary-button"><img src="img/sparkle.svg" alt="Sparkle"> crea itinerario</button>
+            </div>
+            <!-- /Schermata di preparazione -->
+            <!-- Schermata di caricamento -->
+            <div class="loading-screen">
+                <img src="img/icon.png" alt="caricamento">
+            </div>
+            <!-- /Schermata di caricamento -->
+            <!-- Schermata di risultato -->
+            <div class="result-screen">
+                <div class="card">
+                    <h3 class="card-title card-activities-title">Giorno 1</h3>
+                    <div class="activity">
+                        <h4>Mattina al mare</h4>
+                        <p>Descrizione dell'attività</p>
+                    </div>
+                    <div class="activity">
+                        <h4>Passeggiata al mare</h4>
+                        <p>Descrizione dell'attività</p>
+                    </div>
+                </div>
+                <button class="primary-button">nuovo itinerario</button>
+            </div>
+            <!-- /Schermata di risultato -->
+        </main>
+    </div>
+
+</body>
+
+</html>

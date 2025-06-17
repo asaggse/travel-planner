@@ -1,0 +1,189 @@
+/* Color Palette:
+
+#1475FD   // Primary action, borders, highlights
+#539afe   // Card backgrounds, secondary elements
+#60a2ff   // Gradient start, backgrounds
+#94c1ff   // Gradient end, backgrounds
+#e9f2ff   // Input backgrounds
+#62a3ff   // Input text, placeholder
+#d9ff66   // Accent, focus, selected states
+#072c81   // Main text, button backgrounds */
+
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  min-height: 100vh;
+  background-image: linear-gradient(#60a2ff, #94c1ff);
+}
+
+/* General */
+.container {
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+/* Screen view logic */
+.building-screen,
+.loading-screen,
+.results-screen {
+  display: none;
+}
+
+.building .building-screen {
+    display: block;
+}
+
+/* Header */
+.header {
+  text-align: center;
+}
+
+.boolean-logo {
+  width: 100%;
+  margin: 16px 0;
+}
+
+/* Cards */
+.card {
+  background-color: #539afe;
+  border: 1px solid #1475FD;
+  padding: 16px;
+  margin-bottom: 8px;
+}
+
+.card-title {
+    color: #ffffff;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: "Unbounded", sans-serif;
+    font-weight: 300;
+    letter-spacing: 1px;
+    font-size: 20px;
+    margin-bottom: 16px;
+}
+
+/* Input */
+input {
+    width: 100%;
+    padding: 16px;
+    border-radius: 24px;
+    color: #62a3ff;
+    font-size: 18px;
+    background-color: #e9f2ff;
+    outline: none;
+    border: 3px solid transparent;
+}
+
+input:focus {
+    color: #072c81;
+    border-color: #d9ff66;
+}
+
+/* Types Selection */
+.types-selection {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.types-selection-label {
+    border: 1px solid #1475FD;
+    padding: 8px;
+    border-radius: 24px;
+    color: #072c81;
+    font-size: 18px;
+    width: calc(50% - 4px);
+    text-align: center;
+}
+
+.types-selection-label:has(input:checked) {
+    background-color: #1475FD;
+    color: #ffffff;
+    border-color: #d9ff66;
+}
+
+.types-selection-input {
+    display: none;
+}
+
+/* Days Selection */
+.days-selection {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.days-selection-button {
+    background-color: #1475FD;
+    border: none;
+    padding: 8px;
+    border-radius: 50%;
+}
+
+.day-counter {
+    font-size: 56px;
+    columns: #072c81;
+    font-weight: 500;
+}
+
+/* Primary Button */
+.primary-button {
+    width: 100%;
+    background-color: #1475FD;
+    color: #d9ff66;
+    text-transform: uppercase;
+    font-size: 20px;
+    padding: 16px;
+    border-radius: 16px;
+    border: none;
+    font-family:"Unbounded", sans-serif;
+    font-weight: 300;
+    letter-spacing: 2px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin-top: 16px;
+}
+
+/* Loading Screen */
+.loading-screen {
+    text-align: center;
+}
+
+.loading-screen img {
+    margin-top: 100px;
+    animation: pulse 0.5s infinite alternate;
+}
+
+@keyframes pulse {
+    from {
+        scale: 1;
+    }
+    to {
+        scale: 1.1;
+    }
+}
+
+/* Results Screen */
+.card-activities-title {
+    color: #072c81;
+    text-align: left;
+    font-weight: 400;
+    margin-bottom: 0;
+}
+
+.activity {
+    color: #ffffff;
+    margin-top: 8px;
+}
+
+.activity h4 {
+    font-weight: 600;
+}
