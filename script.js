@@ -32,3 +32,25 @@ decrementDayButton.addEventListener('click', function() {
         dayCounter.innerHTML = currentDays - 1;
     }
 });
+
+// Al click del pulsante "Crea Itinerario", mostra il caricamento e invia la richiesta all'API
+createItineraryButton.addEventListener('click', async function() {
+    // Recupero la destinazione
+    const destination = document.querySelector('#destination').value.trim();
+    // Recupero la tipologia di viaggio
+    const type = document.querySelector('.types-selection-input:checked').value;
+    // Recupero il numero di giorni
+    const days = Number(dayCounter.innerHTML);
+
+    // Mostro la schermata di caricamento
+    main.className = "loading";
+
+    // Spedisco le informazioni a Gemini
+    await getItineraryFromGemini(destination, type, days);
+
+    // Renderizzo le informazioni ricevute
+    renderCards();
+
+    // Mostro la schermata dei risultati
+    main.className = "result";
+});
