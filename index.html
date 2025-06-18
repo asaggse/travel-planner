@@ -9,7 +9,9 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Unbounded:wght@200..900&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Unbounded:wght@200..900&display=swap"
+        rel="stylesheet">
     <!-- /Google Fonts -->
     <link rel="stylesheet" href="style.css">
 </head>
@@ -27,7 +29,7 @@
             <div class="building-screen">
                 <div class="card">
                     <h3 class="card-title">Dove vuoi andare?</h3>
-                    <input type="text" value="Ariccia" placeholder="Inserisci la tua destinazione...">
+                    <input type="text" value="Ariccia" id="destination" placeholder="Inserisci la tua destinazione...">
                 </div>
                 <div class="card">
                     <h3 class="card-title">Tipo di viaggio</h3>
@@ -51,18 +53,19 @@
                     </div>
                 </div>
                 <div class="card">
-                    <h3 class="card-title">Durata del viaggio</h3>
+                    <h3 class="card-title">Quanti giorni?</h3>
                     <div class="days-selection">
-                        <button class="day-selection-button">
+                        <button class="day-selection-button" id="decrement-day">
                             <img src="img/remove.svg" alt="Decrementa giorni">
                         </button>
-                        <div class="day-counter">1</div>
-                        <button class="day-selection-button">
+                        <div class="day-counter" id="day-counter">1</div>
+                        <button class="day-selection-button" id="increment-day">
                             <img src="img/add.svg" alt="Incrementa giorni">
                         </button>
                     </div>
                 </div>
-                <button class="primary-button"><img src="img/sparkle.svg" alt="Sparkle"> crea itinerario</button>
+                <button class="primary-button" id="create-itinerary"><img src="img/sparkle.svg" alt="Sparkle"> crea
+                    itinerario</button>
             </div>
             <!-- /Schermata di preparazione -->
             <!-- Schermata di caricamento -->
@@ -72,34 +75,14 @@
             <!-- /Schermata di caricamento -->
             <!-- Schermata di risultato -->
             <div class="result-screen">
-                <div class="card">
-                    <h3 class="card-title card-activities-title">Giorno 1</h3>
-                    <div class="activity">
-                        <h4>Mattina al mare</h4>
-                        <p>Descrizione dell'attività</p>
-                    </div>
-                    <div class="activity">
-                        <h4>Passeggiata al mare</h4>
-                        <p>Descrizione dell'attività</p>
-                    </div>
-                </div>
-                <div class="card">
-                    <h3 class="card-title card-activities-title">Giorno 2</h3>
-                    <div class="activity">
-                        <h4>Mattina al mare</h4>
-                        <p>Descrizione dell'attività</p>
-                    </div>
-                    <div class="activity">
-                        <h4>Passeggiata al mare</h4>
-                        <p>Descrizione dell'attività</p>
-                    </div>
-                </div>
-                <button class="primary-button">nuovo itinerario</button>
+                <div class="result-container"></div>
+                <button class="primary-button" id="new-itinerary">nuovo itinerario</button>
             </div>
             <!-- /Schermata di risultato -->
         </main>
     </div>
 
+    <script src="script.js"></script>
 </body>
 
 </html>
