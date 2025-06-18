@@ -54,3 +54,60 @@ createItineraryButton.addEventListener('click', async function() {
     // Mostro la schermata dei risultati
     main.className = "result";
 });
+
+// Al click del bottone nuovo itinerario
+newItineraryButton.addEventListener('click', function() {
+    location.reload();
+})
+
+// FASE DI ELABORAZIONE
+async function getItineraryFromGemini(destination, type, days) {
+    // Preparo il prompt da inviare a Gemini
+    const prompt = `
+    Sto costruendo un'app che ha bisogno di JSON puro come output.
+    Non aggiungere alcuna formattazione, markdown o codice.
+    Solo JSON puro nel formato seguente (nulla prima o dopo):
+    [{"day":"Giorno 1","activities":[{"title":"Musei Vaticani", "text":"Esplora i Musei Vaticani e la Cappella Sistina"},{"title":"Piazza San Pietro","text":"Visita la Basilica di San Pietro e la piazza"},{"title":"Castel Sant'Angelo","text":"Scopri la storia di Castel Sant'Angelo"}]}]
+    Crea un itinerario di ${days} giorni per una vacanza di tipo ${type} a ${destination}.
+    `;
+
+    // Preparo i dati da inviare a Gemini
+    const conf = {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            contents: [{ parts: [{ text: prompt }] }]
+    })
+}
+
+const response = await fetch(API_ENDPOINT, conf);
+const data = await response.json();
+
+itineraryCards = JSON.parse(data.candidates[0].parts[0].text);
+}
+
+// FASE DI VISUALIZZAZIONE
+function renderCards() {
+    itineraryCards.forEach(function(itinerary) {
+
+        let activitiesTemplate = '';
+        itinerary.activities.forEach(function(activity) {
+            activitiesTemplate += `
+            <div class="activity">
+                <h4>${activity.title}</h4>
+                <p>${activity.text}</p>
+            </div>
+            `;
+        });
+
+        const cardTemplate = `
+        <div class="card">
+            <h3 class="card-title card-activities-title">${itinerary.day}</h3>
+            ${activitiesTemplate}
+        </div>
+        `;
+        resultContainer.innerHTML += cardTemplate;
+    });
+}
