@@ -35,7 +35,9 @@ body {
     display: none;
 }
 
-.building .building-screen {
+.building .building-screen,
+.loading .loading-screen,
+.result .result-screen {
     display: block;
 }
 
@@ -177,7 +179,7 @@ input:focus {
     }
 }
 
-/* Results Screen */
+/* Result Screen */
 .card-activities-title {
     color: #072c81;
     text-align: left;
